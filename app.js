@@ -1,6 +1,6 @@
 const mealDetailsContent = document.querySelector(".meal-details-content");
 
-function getMealList() {
+getMealList = () => {
   let searchInputTxt = document.getElementById("search-input").value;
   fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?f=${searchInputTxt}`
@@ -34,9 +34,9 @@ function getMealList() {
 
       console.log(html);
     });
-}
+};
 
-function getMealByID(mealId) {
+getMealByID = (mealId) => {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then((response) => response.json())
     .then((data) => {
@@ -44,11 +44,11 @@ function getMealByID(mealId) {
       const meal = data.meals[0];
       getIngredientList(meal);
     });
-}
+};
 
-function getIngredientList(meal) {
+getIngredientList = (meal) => {
   const ingredients = [];
-  for (let i = 1; i < 20; i++) {
+  for (let i = 1; i < 30; i++) {
     if (meal[`strIngredient${i}`]) {
       ingredients.push(
         `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]} `
@@ -70,4 +70,4 @@ function getIngredientList(meal) {
   </div>
   
   `;
-}
+};
