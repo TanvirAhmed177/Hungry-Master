@@ -1,5 +1,4 @@
 const mealDetailsContent = document.querySelector(".meal-details-content");
-const recipeCloseBtn = document.getElementById("recipe-close-btn");
 
 function getMealList() {
   let searchInputTxt = document.getElementById("search-input").value;
@@ -11,7 +10,6 @@ function getMealList() {
     .then((data) => {
       let html = "";
       if (data.meals) {
-        const mealResult = document.getElementById("meal-result");
         const mealList = document.getElementById("meal");
         data.meals.forEach((meal) => {
           html += `
